@@ -1,0 +1,53 @@
+{% extends 'layout.html' %} {% block content%}
+<div
+  class="relative flex flex-col justify-center items-center text-gray-700"
+>
+  <div class="border-2 max-w-screen-lg p-4 bg-transparent shadow-none rounded-xl bg-clip-border">
+    <h4
+      class="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900"
+    >
+      Sign Up
+    </h4>
+    <p
+      class="block mt-1 font-sans text-base antialiased font-normal leading-relaxed text-gray-700"
+    >
+      Nice to meet you! Enter your details to register.
+    </p>
+    <form
+      class="max-w-screen-lg mt-8 mb-2 w-80 sm:w-96 flex flex-col space-y-4"
+      method="POST"
+      action="{% url 'login' %}"
+    >
+    {% csrf_token %}
+      <div class="w-full mx-2">
+        <label for="username" class="text-md w-full">
+          <span class="capitalize font-bold my-2.5">username</span>
+          <input
+            type="text"
+            class="w-full rounded-md p-2 border"
+            name="username"
+          />
+        </label>
+      </div>
+      <div class="w-full mx-2">
+        <label for="password" class="text-md w-full">
+          <span class="capitalize font-bold my-2.5">password</span>
+          <input
+            type="password"
+            class="w-full rounded-md p-2 border"
+            name="password"
+          />
+        </label>
+      </div>
+      <div class="w-full mx-2">
+        <button
+          class="px-4 py-2 bg-black text-white font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:text-black hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+          type="submit"
+        >
+          <span>Login</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

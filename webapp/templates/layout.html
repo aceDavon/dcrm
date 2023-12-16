@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- stylesheet -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+/>
+ 
+<!-- script -->
+<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="relative h-screen">
+  {% include 'navbar.html' %}
+  <div class="absolute bottom-0 right-3">
+    {% include 'alerts.html' %}
+  </div>
+  {% block content%}
+  {% endblock %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %} {% block content%}
+<form
+      class="w-full"
+      method="POST"
+    >
+    {% csrf_token %}
+    <div class="mt-8 mb-2 border-2 w-5/12 mx-auto py-6 flex flex-col justify-center items-center space-y-4 rounded-lg">
+    {{ form.as_p }}
+      <div class="w-full mx-2 flex justify-center">
+        <button
+          class="px-4 py-2 bg-black text-white font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:text-black hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+          type="submit"
+        >
+          <span>Register</span>
+        </button>
+      </div>
+    </form>
+{% endblock %}
