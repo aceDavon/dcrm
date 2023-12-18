@@ -1,0 +1,65 @@
+{% extends 'layout.html' %} {% load static %} {% block content %}
+<div class="w-full block sm:flex justify-between gap-4 sm:gap-2 space-y-4 py-6">
+  <!-- Left side bar container -->
+  <div
+    class="hidden sm:inline w-1/3 py-4 px-2 h-screen bg-white rounded-md shadow-md"
+  ></div>
+  <!-- User card details -->
+  <div class="w-full sm:w-1/3 py-4 px-2 h-min bg-white rounded-md shadow-md">
+    <!-- inner user details card -->
+    <div class="flex flex-col items-end space-y-2">
+      <!-- top name bar on small screens -->
+      <div class="hidden sm:inline p-2">
+        <span class="text-gray-400 text-md font-bold"
+          >{{ customer.first_name }} {{ customer.last_name }}</span
+        >
+      </div>
+      <!-- Main card details block -->
+      <div class="w-full relative">
+        <!-- Demographic details -->
+        <div class="flex flex-col items-end p-2">
+          <div class="text-md">
+            <span class="text-sm font-thin italic text-gray-400"
+              >{{ customer.email }}</span
+            >
+          </div>
+          <div class="text-md">
+            <span class="font-semibold text-gray-400"
+              >{{ customer.address }}</span
+            >
+          </div>
+          <div class="text-md">
+            <span class="font-semibold text-gray-400"
+              >{{ customer.phone }}</span
+            >
+          </div>
+        </div>
+        <!-- User avatar -->
+        <div
+          class="w-64 h-64 mx-auto md:w-48 md:h-48 lg:w-36 lg:h-36 lg:absolute lg:-top-[6rem] rounded-full border-2 border-white overflow-hidden"
+        >
+          <img
+            src="{% static 'webapp/photo-1493612276216-ee3925520721.avif' %}"
+            alt=""
+            class="w-full h-full object-fit"
+          />
+        </div>
+        <!-- Social links -->
+        <div
+          class="border-y border-y-gray-200 py-1.5 flex justify-center sm:justify-end space-x-0.5 mt-4 sm:mt-6"
+        >
+          <a href="#"> {{ skype_icon|safe }} </a>
+          <a href="#">{{ twitter_icon|safe }}</a>
+          <a href="#">{{ facebook_icon|safe }}</a>
+          <a href="#">{{ linkedin_icon|safe }}</a>
+          <a href="#">{{ instagram_icon|safe }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Right side bar container -->
+  <div
+    class="w-full sm:w-1/3 py-4 px-2 h-96 bg-white rounded-md shadow-md"
+  ></div>
+</div>
+{% endblock %}

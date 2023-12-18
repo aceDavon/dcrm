@@ -25,7 +25,7 @@ class Sign_Up_Form(UserCreationForm):
 
         self.fields['password1'].widget.attrs['class'] = 'w-full rounded-md p-2 border'
         self.fields['password1'].widget.attrs['placeholder'] = ''
-        self.fields['password1'].help_text = "<ul class='flex flex-col  space-y-2 items-center p-2'><li class='text-xs text-red-500 italic whitespace-normal text-left w-96'>Password Must be 6 characters long</li><li class='text-xs text-red-500 italic whitespace-normal  text-left w-96'>Password Must contain numbers, alphabets and symbols and can also be a combination of upper and lower case letters</li><li class='text-xs text-red-500 italic whitespace-normal text-left w-96'>Password Must not contain text similar to the other data provided</li></ul>"
+        self.fields['password1'].help_text = ""
 
         self.fields['password2'].widget.attrs['class'] = 'w-full rounded-md p-2 border'
         self.fields['password2'].widget.attrs['placeholder'] = ''

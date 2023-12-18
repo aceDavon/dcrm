@@ -1,18 +1,28 @@
 {% extends 'layout.html' %} {% block content%}
-<form
-      class="w-full"
-      method="POST"
-    >
-    {% csrf_token %}
-    <div class="mt-8 mb-2 border-2 w-5/12 mx-auto py-6 flex flex-col justify-center items-center space-y-4 rounded-lg">
+<form class="w-full mt-8 mb-2 flex justify-center flex-col items-center" method="POST">
+  {% csrf_token %} {% if form.errors %}
+  <div
+    data-dismissible="alert"
+    role="alert"
+    class="relative flex w-[32rem] mx-auto my-6 rounded-lg {% if message.tags == 'success' %}bg-gradient-to-tr from-green-700 to-green-500{% elif message.tags == 'error' %}bg-gradient-to-tr from-red-500 to-gray-300{% endif %} px-4 py-4 text-base text-white whitespace-normal"
+  >
+    <div class="shrink-0">
+      {% for field in form %} 
+        {% if field.errors %} 
+          {{ field.errors }} 
+        {% endif %} 
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
     {{ form.as_p }}
-      <div class="w-full mx-2 flex justify-center">
-        <button
-          class="px-4 py-2 bg-black text-white font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:text-black hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
-          type="submit"
-        >
-          <span>Register</span>
-        </button>
-      </div>
-    </form>
+    <div class="w-full mx-2 flex justify-center">
+      <button
+        class="px-4 py-2 bg-black text-white font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:text-black hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+        type="submit"
+      >
+        <span>Register</span>
+      </button>
+    </div>
+</form>
 {% endblock %}
